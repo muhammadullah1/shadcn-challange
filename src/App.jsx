@@ -1,12 +1,8 @@
-import Page from '@/app/dashboard/page';
-
+// import Page from '@/app/dashboard/page';
+import AppRoutes from './Routes/index'
 
 function App() {
-  return (
-    <>
-    
-    </>
-  )
+  return <AppRoutes />
 }
 
 export default App
