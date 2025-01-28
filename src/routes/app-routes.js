@@ -1,6 +1,6 @@
 // --------- Admin import
-import Dashboard from '../app/dashboard/analaytics'
-import Page from '../app/dashboard/page'
+import Dashboard from '../app/dashboard'
+import Page from '../app/page'
 
 export const AppRoutes = [
   {
