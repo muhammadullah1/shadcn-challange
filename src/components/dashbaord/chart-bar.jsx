@@ -1,16 +1,7 @@
 'use client'
 
-import { TrendingUp } from 'lucide-react'
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts'
-
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import {
   ChartContainer,
   ChartLegend,
@@ -20,18 +11,18 @@ import {
 } from '@/components/ui/chart'
 
 const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 },
-  { month: 'July', desktop: 219, mobile: 150 },
-  { month: 'August', desktop: 224, mobile: 160 },
-  { month: 'September', desktop: 229, mobile: 170 },
-  { month: 'October', desktop: 234, mobile: 180 },
-  { month: 'November', desktop: 239, mobile: 190 },
-  { month: 'December', desktop: 244, mobile: 200 },
+  { month: 'January', desktop: 186 },
+  { month: 'February', desktop: 155 },
+  { month: 'March', desktop: 137 },
+  { month: 'April', desktop: 173 },
+  { month: 'May', desktop: 209 },
+  { month: 'June', desktop: 114 },
+  { month: 'July', desktop: 119 },
+  { month: 'August', desktop: 100 },
+  { month: 'September', desktop: 99 },
+  { month: 'October', desktop: 134 },
+  { month: 'November', desktop: 139 },
+  { month: 'December', desktop: 144 },
 ]
 
 const chartConfig = {
@@ -39,57 +30,34 @@ const chartConfig = {
     label: 'Desktop',
     color: 'hsl(var(--chart-1))',
   },
-  mobile: {
-    label: 'Mobile',
-    color: 'hsl(var(--chart-2))',
-  },
-};
+}
 
 export function ChartBar() {
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Bar Chart - Stacked + Legend</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
-      </CardHeader>
+      <CardHeader></CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey='month'
               tickLine={false}
               tickMargin={10}
-
               axisLine={false}
-              tickFormatter={value => value.slice(0, 3)}
+              tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip content={<ChartTooltipContent hideLabel />} />
             <ChartLegend content={<ChartLegendContent />} />
             <Bar
-              dataKey="desktop"
-              stackId="a"
-              fill="var(--color-desktop)"
+              dataKey='desktop'
+              stackId='a'
+              fill='var(--color-desktop)'
               radius={[0, 0, 4, 4]}
-            />
-            <Bar
-              dataKey="mobile"
-              stackId="a"
-              fill="var(--color-mobile)"
-              radius={[4, 4, 0, 0]}
             />
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
-        <div className="flex gap-2 font-medium leading-none">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter>
     </Card>
   )
 }
-

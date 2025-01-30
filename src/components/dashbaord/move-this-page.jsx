@@ -1,10 +1,6 @@
 import { Users, CreditCard, Activity, ArrowUpRight } from 'lucide-react'
-
 import { AnalyticsCard } from '@/components/dashbaord/analytics-card'
-import { ChartArea } from '@/components/dashbaord/chart-area'
 import { ChartBar } from '@/components/dashbaord/chart-bar'
-import { ChartLine } from '@/components/dashbaord/chart-line'
-import { ChartPie } from '@/components/dashbaord/chart-pie'
 
 export function DashboardPage() {
   const analyticsData = [
@@ -36,29 +32,21 @@ export function DashboardPage() {
 
   return (
     <div className='p-8'>
-      <h1 className='text-3xl font-bold mb-6'>Analytics Dashboard</h1>
-
       <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-8'>
         {analyticsData.map((data, index) => (
           <AnalyticsCard key={index} {...data} />
         ))}
       </div>
 
-      <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-7 mb-8'>
-        <div className='lg:col-span-4'>
+      <div className='grid lg:grid-cols-7 mb-8'>
+        <div className='lg:col-span-5'>
           <ChartBar />
-        </div>
-        <div className='lg:col-span-3'>
-          <ChartLine />
         </div>
       </div>
 
       {/* <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-7'>
-        <div className='lg:col-span-4'>
-          <ChartArea />
-        </div>
-        <div className='lg:col-span-3'>
-          <ChartPie />
+        <div className='lg:col-span-7'>
+          <table />
         </div>
       </div> */}
     </div>
